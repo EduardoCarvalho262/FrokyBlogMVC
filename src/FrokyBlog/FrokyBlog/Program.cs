@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using FrokyBlog.Data;
 namespace FrokyBlog
 {
     public class Program
@@ -5,6 +8,8 @@ namespace FrokyBlog
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<FrokyBlogContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("FrokyBlogContext") ?? throw new InvalidOperationException("Connection string 'FrokyBlogContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
