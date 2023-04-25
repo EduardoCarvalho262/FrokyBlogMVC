@@ -1,5 +1,7 @@
-﻿using FrokyBlog.Models;
+﻿using FrokyBlog.Data;
+using FrokyBlog.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace FrokyBlog.Controllers
@@ -7,20 +9,25 @@ namespace FrokyBlog.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly FrokyBlogContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, FrokyBlogContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View();
-        }
+            var posts = from m in _context.Post
+                        select m;
 
-        public IActionResult Privacy()
-        {
-            return View();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                posts = posts.Where(s => s.Title!.Contains(searchString));
+            }   
+
+            return View(await posts.ToListAsync());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

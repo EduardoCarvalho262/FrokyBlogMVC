@@ -14,20 +14,6 @@ namespace FrokyBlog.Controllers
             _context = context;
         }
 
-        // GET: Posts
-        public async Task<IActionResult> Index(string searchString)
-        {
-            var posts = from m in _context.Post
-                         select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                posts = posts.Where(s => s.Title!.Contains(searchString));
-            }
-
-            return View(await posts.ToListAsync());
-        }
-
         // GET: Posts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
