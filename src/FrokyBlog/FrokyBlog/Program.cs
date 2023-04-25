@@ -8,8 +8,11 @@ namespace FrokyBlog
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            //builder.Services.AddDbContext<FrokyBlogContext>(options =>
+            //options.UseSqlServer(builder.Configuration.GetConnectionString("FrokyBlogContext") ?? throw new InvalidOperationException("Connection string 'FrokyBlogContext' not found.")));
+
             builder.Services.AddDbContext<FrokyBlogContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("FrokyBlogContext") ?? throw new InvalidOperationException("Connection string 'FrokyBlogContext' not found.")));
+                options.UseSqlite($"Data Source=Posts.db"));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
