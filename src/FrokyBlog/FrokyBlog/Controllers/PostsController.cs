@@ -43,7 +43,7 @@ namespace FrokyBlog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,CreatedDate,Rating")] Post post)
+        public async Task<IActionResult> Create([Bind("Id,Title,Content,Description,CreatedDate")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -71,8 +71,6 @@ namespace FrokyBlog.Controllers
         }
 
         // POST: Posts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,CreatedDate")] Post post)

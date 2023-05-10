@@ -12,7 +12,7 @@
 </form>
 
 <div class="text-end mb-3">
-    <a class="btn btn-outline-primary" asp-controller="Posts" asp-action="Create">New Post</a>
+    <a class="btn btn-outline-primary" asp-controller="Posts" asp-action="Create">Novo Post!</a>
 </div>
 
 
@@ -21,6 +21,7 @@
     <div class="text-center mb-4">
         <div class="card text-center">
             <div class="card-body">
+                <a class="btn btn-outline-danger position-absolute top-0 end-0 mt-2 me-2" asp-controller="Posts" asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
                 <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
                 <a class="btn btn-outline-primary" asp-controller="Posts" asp-action="Details" asp-route-id="@item.Id">Ver Post</a>
