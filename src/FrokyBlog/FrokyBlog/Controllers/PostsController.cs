@@ -73,7 +73,7 @@ namespace FrokyBlog.Controllers
         // POST: Posts/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,CreatedDate")] Post post)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,Description,CreatedDate")] Post post)
         {
             if (id != post.Id)
             {
