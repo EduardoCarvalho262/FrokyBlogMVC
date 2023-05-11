@@ -15,10 +15,13 @@ Para instalar o projeto, siga os seguintes passos:
 
 Para usar o projeto, siga os seguintes passos:
 
-1. Abra o navegador e acesse `http://localhost:5000`.
-2. Crie um novo post clicando no botão "Novo Post".
-3. Preencha os campos e clique em "Salvar".
-4. Para editar ou excluir um post, clique nos botões "Editar" ou "Excluir" na lista de posts.
+1. Execute o projeto
+2. Abra o navegador e acesse `http://localhost:5000`.
+3. Crie um novo post clicando no botão "Novo Post".
+4. Preencha os campos e clique em "Salvar".
+5. Para olhar o Post clique em "Ver post".
+6. Para deletar o Post é só clicar em "Deletar na lista de Post".
+7. Você também pode filtrar seu Post pelo nome.
 
 ## Contribuindo
 
