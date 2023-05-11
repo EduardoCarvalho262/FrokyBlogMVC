@@ -1,6 +1,6 @@
-# Blog CRUD em .NET 7
+# Blog CRUD MVC em .NET 7
 
-Este projeto é um CRUD (Create, Read, Update, Delete) de um blog feito em .NET 7. O objetivo do projeto é permitir a criação de posts.
+Este projeto é um CRUD (Create, Read, Update, Delete) de um blog feito em .NET 7 e MVC. O objetivo do projeto é permitir a criação de posts.
 
 ## Instalação
 
